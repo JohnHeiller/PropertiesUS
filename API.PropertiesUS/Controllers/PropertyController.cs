@@ -1,6 +1,7 @@
 ﻿using System;
 using API.PropertiesUS.BL;
 using API.PropertiesUS.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -11,6 +12,7 @@ namespace API.PropertiesUS.Controllers
     /// <summary>
     /// Controller actions for Property data management
     /// </summary>
+    [Authorize]
     [SwaggerTag("Properties API - Controller actions for Property data management")]
     [ApiController]
     [Route("[controller]")]
@@ -57,6 +59,7 @@ namespace API.PropertiesUS.Controllers
         /// <returns>Record Identifier</returns>
         /// <response code="200">Returns the ID of the new recor</response>
         /// <response code="400">Notify error in business validations</response>  
+        /// <response code="401">Report authentication error</response>  
         [HttpPost]
         [Route("Create")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -94,6 +97,7 @@ namespace API.PropertiesUS.Controllers
         /// <returns>Successful update indicator</returns>
         /// <response code="200">Return successful change indicator</response>
         /// <response code="400">Notify error in business validations</response>  
+        /// <response code="401">Report authentication error</response>  
         [HttpPost]
         [Route("ChangePrice")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -134,6 +138,7 @@ namespace API.PropertiesUS.Controllers
         /// <returns>List of property records</returns>
         /// <response code="200">Return list of records consulted</response>
         /// <response code="400">Notify error in business validations</response>  
+        /// <response code="401">Report authentication error</response>  
         [HttpPost]
         [Route("GetListByFilters")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -174,6 +179,7 @@ namespace API.PropertiesUS.Controllers
         /// <returns>Successful update indicator</returns>
         /// <response code="200">Return indicator of record updated</response>
         /// <response code="400">Notify error in business validations</response>  
+        /// <response code="401">Report authentication error</response>  
         [HttpPost]
         [Route("Update")]
         [ProducesResponseType(StatusCodes.Status200OK)]

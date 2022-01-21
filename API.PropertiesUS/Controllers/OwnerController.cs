@@ -1,6 +1,7 @@
 ﻿using System;
 using API.PropertiesUS.BL;
 using API.PropertiesUS.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -12,6 +13,7 @@ namespace API.PropertiesUS.Controllers
     /// <summary>
     /// Controller actions for Owner data management
     /// </summary>
+    [Authorize]
     [SwaggerTag("Owners API - Controller actions for Owner data management")]
     [ApiController]
     [Route("[controller]")]
@@ -64,6 +66,7 @@ namespace API.PropertiesUS.Controllers
         /// <returns>Record Identifier</returns>
         /// <response code="200">Returns the ID of the new record</response>
         /// <response code="400">Notify error in business validations</response>  
+        /// <response code="401">Report authentication error</response>  
         [HttpPost]
         [Route("Create")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -88,6 +91,7 @@ namespace API.PropertiesUS.Controllers
         /// <returns>List of records consulted</returns>
         /// <response code="200">Returns the List of records consulted successfully</response>
         /// <response code="400">Notify error in business validations</response>  
+        /// <response code="401">Report authentication error</response>  
         [HttpGet]
         [Route("GetAll")]
         [ProducesResponseType(StatusCodes.Status200OK)]
