@@ -43,7 +43,7 @@ namespace API.PropertiesUS
 
             #region BDConnection
             var connectionString = Configuration.GetConnectionString("APIConnection");
-            services.AddDbContext<DbContextPropertiesUS>(config =>
+            services.AddDbContextPool<DbContextPropertiesUS>(config =>
             {
                 config.UseSqlServer(connectionString);
             });

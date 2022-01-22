@@ -32,8 +32,8 @@ namespace API.PropertiesUS.DAL
             if (string.IsNullOrWhiteSpace(dbParameter))
             {
                 //Para Migrar la base de datos desde EntityFramework, habilite la asignacion de cadena de conexion directamente en esta clase
-                dbParameter = "Server=localhost\\SQLEXPRESS;Database=PropertiesUS;Trusted_Connection=True;MultipleActiveResultSets=true;";
-                //throw new System.Exception("Cadena de conexion a base de datos NO identificada");
+                //dbParameter = "Server=localhost\\SQLEXPRESS;Database=PropertiesUS;Trusted_Connection=True;MultipleActiveResultSets=true;";
+                throw new System.Exception("Cadena de conexion a base de datos NO identificada");
             }
             optionsBuilder.UseSqlServer(dbParameter);
         }
