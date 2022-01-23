@@ -134,7 +134,7 @@ namespace API.PropertiesUS.Controllers
         ///     }
         ///      
         /// </remarks>
-        /// <param name="property">PropertyPriceDTO with data to fill in to use as query filters</param>
+        /// <param name="property">PropertyDTO with data to fill in to use as query filters</param>
         /// <returns>List of property records</returns>
         /// <response code="200">Return list of records consulted</response>
         /// <response code="400">Notify error in business validations</response>  
