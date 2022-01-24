@@ -2,7 +2,7 @@
 
 API que permite obtener información de Propiedades en Estados Unidos para una gran empresa de Real Estate.
 ```
-	**ÍNDICE**
+	ÍNDICE:
 	1. ARQUITECTURA
 	2. ESTRUCTURA
 	3. DOCUMENTACIÓN DE CÓDIGO
@@ -150,8 +150,8 @@ En este, se podrá enviar el valor especifico que se quiere utilizar como filtro
 ### 8.1.	Descargue o clone el proyecto desde GitHub a un repositorio local
 
 ### 8.2.	Configure la base de datos del API:
-- Cree la base de datos _PropertiesUS_. Para esto puede utilizar el script _CREATE_DATABASE_PropertiesUS.sql_ ubicado en la carpeta [BD_Scripts] dentro del repositorio.
-- Cree las tablas respectivas para conectar el proyecto. Para esto puede ejecutar los scripts ubicados en la carpeta [BD_Scripts] dentro del repositorio _CREATE_dbo.Owner.sql_, _CREATE_dbo.Property.sql_, _CREATE_dbo.PropertyImage.sql_, _CREATE_dbo.PropertyTrace.sql_, y sobre esto puede obtener referencia sobre las conexiones entre tablas con la imagen _DiagramaBD.JPG_, dentro de la misma carpeta. También puede migrar la base de datos desde el mismo proyecto, para lo cual debe asignar la cadena de conexión de la base de datos como valor para la variable _dbParameter_ dentro de la clase _DbContextPropertiesUS_, tome como ejemplo la imagen siguiente:  
+- Cree la base de datos _PropertiesUS_. Para esto puede utilizar el script _CREATE_DATABASE_PropertiesUS.sql_ ubicado en la carpeta _BD_Scripts_ dentro del repositorio.
+- Cree las tablas respectivas para conectar el proyecto. Para esto puede ejecutar los scripts ubicados en la carpeta _BD_Scripts_ dentro del repositorio _CREATE_dbo.Owner.sql_, _CREATE_dbo.Property.sql_, _CREATE_dbo.PropertyImage.sql_, _CREATE_dbo.PropertyTrace.sql_, y sobre esto puede obtener referencia sobre las conexiones entre tablas con la imagen _DiagramaBD.JPG_, dentro de la misma carpeta. También puede migrar la base de datos desde el mismo proyecto, para lo cual debe asignar la cadena de conexión de la base de datos como valor para la variable _dbParameter_ dentro de la clase _DbContextPropertiesUS_, tome como ejemplo la imagen siguiente:  
 ![Migración de BD](https://github.com/JohnHeiller/PropertiesUS/blob/master/DocumentedImages/8_1_Migrar_BD.png)
 
 ### 8.3.	Configure y lance el API:
