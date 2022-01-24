@@ -1,0 +1,1087 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>API.PropertiesUS</name>
+    </assembly>
+    <members>
+        <member name="T:API.PropertiesUS.BL.IOwnerBL">
+            <summary>
+            Interface for business validations of the Owner entity
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.BL.IOwnerBL.CreateOwner(API.PropertiesUS.DTO.OwnerDTO)">
+            <summary>
+            Method to validate the correct creation of an Owner record
+            </summary>
+            <param name="owner">OwnerDTO with Owner data to register</param>
+            <returns>New record identifier</returns>
+        </member>
+        <member name="M:API.PropertiesUS.BL.IOwnerBL.GetAll">
+            <summary>
+            Method to get all existing Owner records
+            </summary>
+            <returns>List of records consulted Owners</returns>
+        </member>
+        <member name="T:API.PropertiesUS.BL.IPropertyBL">
+            <summary>
+            Interface for business validations for the entity Property
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.BL.IPropertyBL.CreateProperty(API.PropertiesUS.DTO.PropertyDTO)">
+            <summary>
+            Method to validate the correct creation of a property registry
+            </summary>
+            <param name="property">PropertyDTO with Owner data to register</param>
+            <returns>Identifier of the new record</returns>
+        </member>
+        <member name="M:API.PropertiesUS.BL.IPropertyBL.GetPropertiesByFilter(API.PropertiesUS.DTO.PropertyDTO)">
+            <summary>
+            Method to get a list of properties according to query filters
+            </summary>
+            <param name="property">Property DTO with data used as query filters</param>
+            <returns>List of queried property records Properties</returns>
+        </member>
+        <member name="M:API.PropertiesUS.BL.IPropertyBL.UpdatePropertyPrice(API.PropertiesUS.DTO.PropertyPriceDTO)">
+            <summary>
+            Method to update the price of a property
+            </summary>
+            <param name="propertyPrice">PropertyPriceDTO with data to consult property and change price</param>
+            <returns>Successful update indicator</returns>
+        </member>
+        <member name="T:API.PropertiesUS.BL.IPropertyImagesBL">
+            <summary>
+            Interface for business validations of the entity PropertyImage
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.BL.IPropertyImagesBL.AddImageByProperty(API.PropertiesUS.DTO.PropertyImageDTO)">
+            <summary>
+            Method to add an image record for a property
+            </summary>
+            <param name="propertyImage">PropertyImageDTO with property data to query and image values</param>
+            <returns>Identifier of the new record</returns>
+        </member>
+        <member name="M:API.PropertiesUS.BL.IPropertyImagesBL.UpdateImageById(API.PropertiesUS.DTO.PropertyImageSimpleDTO)">
+            <summary>
+            Method to update a Property Image
+            </summary>
+            <param name="propertyImage">PropertyImageSimpleDTO with data to query the registry and change the image</param>
+            <returns>Successful update indicator</returns>
+        </member>
+        <member name="T:API.PropertiesUS.BL.IPropertyTraceBL">
+            <summary>
+            Interface for business validations of the entity PropertyTrace
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.BL.IPropertyTraceBL.CreateTrace(API.PropertiesUS.DTO.PropertyTraceDTO)">
+            <summary>
+            Method to create a record of sale or trace of a property
+            </summary>
+            <param name="propertyTrace">PropertyTraceDTO with property query data and, sale or trace to record</param>
+            <returns>New record identifier</returns>
+        </member>
+        <member name="M:API.PropertiesUS.BL.IPropertyTraceBL.UpdatePropertyTrace(API.PropertiesUS.DTO.PropertyTraceSimpleDTO)">
+            <summary>
+            Method for updating a record of sale or trace of property
+            </summary>
+            <param name="propertySimple">PropertySimpleDTO with property trace query data and values to update</param>
+            <returns>Successful update indicator</returns>
+        </member>
+        <member name="T:API.PropertiesUS.BL.OwnerBL">
+            <summary>
+            Class for business validations of the entity Owner
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.BL.OwnerBL.#ctor(System.String)">
+            <summary>
+            Class constructor
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.BL.OwnerBL.CreateOwner(API.PropertiesUS.DTO.OwnerDTO)">
+            <summary>
+            Method to validate the correct creation of an Owner record
+            </summary>
+            <param name="owner">OwnerDTO with Owner data to register</param>
+            <returns>New record identifier</returns>
+        </member>
+        <member name="M:API.PropertiesUS.BL.OwnerBL.GetAll">
+            <summary>
+            Method to get all existing records of Owners
+            </summary>
+            <returns>List of queried records of type Owners</returns>
+        </member>
+        <member name="T:API.PropertiesUS.BL.PropertyBL">
+            <summary>
+            Class for business validations table: Property
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.BL.PropertyBL.#ctor(System.String)">
+            <summary>
+            Class constructor
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.BL.PropertyBL.CreateProperty(API.PropertiesUS.DTO.PropertyDTO)">
+            <summary>
+            Method to validate the correct creation of a property registry
+            </summary>
+            <param name="property">PropertyDTO with Owner data to register</param>
+            <returns>Identifier of the new record</returns>
+        </member>
+        <member name="M:API.PropertiesUS.BL.PropertyBL.GetPropertiesByFilter(API.PropertiesUS.DTO.PropertyDTO)">
+            <summary>
+            Method to get list of properties according to query filters
+            </summary>
+            <param name="property">Property DTO with data used as query filters</param>
+            <returns>List of property records consulted</returns>
+        </member>
+        <member name="M:API.PropertiesUS.BL.PropertyBL.UpdatePropertyPrice(API.PropertiesUS.DTO.PropertyPriceDTO)">
+            <summary>
+            Method to update the price of a property
+            </summary>
+            <param name="propertyPrice">PropertyPriceDTO with data to consult property and change price</param>
+            <returns>Successful update indicator</returns>
+        </member>
+        <member name="T:API.PropertiesUS.BL.PropertyImagesBL">
+            <summary>
+            Class for business validations for table: PropertyImage 
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.BL.PropertyImagesBL.#ctor(System.String)">
+            <summary>
+            Class constructor
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.BL.PropertyImagesBL.AddImageByProperty(API.PropertiesUS.DTO.PropertyImageDTO)">
+            <summary>
+            Method to add an image record for a property
+            </summary>
+            <param name="propertyImage">PropertyImageDTO with property data to query and image values</param>
+            <returns>Identifier of the new record</returns>
+        </member>
+        <member name="M:API.PropertiesUS.BL.PropertyImagesBL.UpdateImageById(API.PropertiesUS.DTO.PropertyImageSimpleDTO)">
+            <summary>
+            Method to update a Property Image
+            </summary>
+            <param name="propertyImage">PropertyImageSimpleDTO with data to query the registry and change the image</param>
+            <returns>Successful update indicator</returns>
+        </member>
+        <member name="T:API.PropertiesUS.BL.PropertyTraceBL">
+            <summary>
+            Class for business validations of the entity PropertyTrace 
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.BL.PropertyTraceBL.#ctor(System.String)">
+            <summary>
+            Class constructor
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.BL.PropertyTraceBL.CreateTrace(API.PropertiesUS.DTO.PropertyTraceDTO)">
+            <summary>
+            Method to create a record of sale or trace of a property
+            </summary>
+            <param name="propertyTrace">PropertyTraceDTO with property query data and, sale or trace to record</param>
+            <returns>New record identifier</returns>
+        </member>
+        <member name="M:API.PropertiesUS.BL.PropertyTraceBL.UpdatePropertyTrace(API.PropertiesUS.DTO.PropertyTraceSimpleDTO)">
+            <summary>
+            Method to update a record of sale or ownership trace
+            </summary>
+            <param name="propertySimple">PropertySimpleDTO with property trace query data and values to update</param>
+            <returns>Successful update indicator</returns>
+        </member>
+        <member name="T:API.PropertiesUS.BL.UtilBL">
+            <summary>
+            Class for common validations in the other BLs, such as Utilities
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.BL.UtilBL.#ctor">
+            <summary>
+            Class constructor
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.BL.UtilBL.GetBase64(System.Drawing.Image)">
+            <summary>
+            Method to convert a value of type Image to base64
+            </summary>
+            <param name="image">Image file type</param>
+            <returns>image base64</returns>
+        </member>
+        <member name="T:API.PropertiesUS.Controllers.OwnerController">
+            <summary>
+            Controller actions for Owner data management
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.Controllers.OwnerController._configuration">
+            <summary>
+            Object of type IConfiguration
+            </summary>
+        </member>
+        <member name="F:API.PropertiesUS.Controllers.OwnerController._ownerBL">
+            <summary>
+            Object of type IOwnerBL
+            </summary>
+        </member>
+        <member name="F:API.PropertiesUS.Controllers.OwnerController._logger">
+            <summary>
+            Object of type ILogger(OwnerController)
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.Controllers.OwnerController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{API.PropertiesUS.Controllers.OwnerController})">
+            <summary>
+            Class constructor of controller
+            </summary>
+            <param name="configuration">Object of type IConfiguration</param>
+            <param name="logger">Object to record the log</param>
+        </member>
+        <member name="M:API.PropertiesUS.Controllers.OwnerController.Create(API.PropertiesUS.DTO.OwnerDTO)">
+            <summary>
+            Create a new Owner record
+            </summary>
+            <remarks>
+            Sample request:
+            
+                POST /Create
+                {
+                  "name": "UsuarioEmpresarial",
+                  "address": "Calle 1 # 1 - 1",
+                  "phone": "3005003050",
+                  "photo": null,
+                  "photoBase64": null,
+                  "birthday": "1990-01-01"
+                }
+                 
+            </remarks>
+            <param name="owner">OwnerDTO with basic data to register the owner</param>
+            <returns>Record Identifier</returns>
+            <response code="200">Returns the ID of the new record</response>
+            <response code="400">Notify error in business validations</response>  
+        </member>
+        <member name="M:API.PropertiesUS.Controllers.OwnerController.GetAll">
+            <summary>
+            Get the list of all registered Owners
+            </summary>
+            <returns>List of records consulted</returns>
+            <response code="200">Returns the List of records consulted successfully</response>
+            <response code="400">Notify error in business validations</response>  
+        </member>
+        <member name="T:API.PropertiesUS.Controllers.PropertyController">
+            <summary>
+            Controller actions for Property data management
+            </summary>
+        </member>
+        <member name="F:API.PropertiesUS.Controllers.PropertyController._propertyBL">
+            <summary>
+            Object of type IPropertyBL
+            </summary>
+        </member>
+        <member name="F:API.PropertiesUS.Controllers.PropertyController._logger">
+            <summary>
+            Object of type ILogger(PropertyController)
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.Controllers.PropertyController.#ctor(Microsoft.Extensions.Logging.ILogger{API.PropertiesUS.Controllers.PropertyController})">
+            <summary>
+            Class constructor of controller
+            </summary>
+            <param name="logger">Object to record the log</param>
+        </member>
+        <member name="M:API.PropertiesUS.Controllers.PropertyController.Create(API.PropertiesUS.DTO.PropertyDTO)">
+            <summary>
+            Create a new Property record
+            </summary>
+            <remarks>
+            Sample request:
+            
+                POST /Create
+                {
+                  "nameProperty": "Edificio Caobos",
+                  "addressProperty": "Calle 10 # 11 - 1",
+                  "priceProperty": "1000000",
+                  "codeInternalProperty": "",
+                  "year": "2005",
+                  "idOwner": null,
+                  "nameOwner": "Usuario1"
+                }
+                 
+            </remarks>
+            <param name="property">PropertyDTO with basic data to register the property</param>
+            <returns>Record Identifier</returns>
+            <response code="200">Returns the ID of the new recor</response>
+            <response code="400">Notify error in business validations</response>  
+        </member>
+        <member name="M:API.PropertiesUS.Controllers.PropertyController.ChangePrice(API.PropertiesUS.DTO.PropertyPriceDTO)">
+            <summary>
+            Update the price field in a Property record
+            </summary>
+            <remarks>
+            Sample request:
+            
+                POST /ChangePrice
+                {
+                  "price": "550000",
+                  "name": "",
+                  "photo": null,
+                  "codeInternal": "",
+                  "idProperty": 1
+                }
+                 
+            </remarks>
+            <param name="propertyPrice">PropertyPriceDTO with data to identify the property and its new price</param>
+            <returns>Successful update indicator</returns>
+            <response code="200">Return successful change indicator</response>
+            <response code="400">Notify error in business validations</response>  
+        </member>
+        <member name="M:API.PropertiesUS.Controllers.PropertyController.GetListByFilters(API.PropertiesUS.DTO.PropertyDTO)">
+            <summary>
+            Obtains a list of Property records according to the fields filled in as a filter
+            </summary>
+            <remarks>
+            Sample request:
+            
+                POST /GetListByFilters
+                {
+                  "nameProperty": "",
+                  "addressProperty": "",
+                  "priceProperty": "550000",
+                  "codeInternalProperty": "",
+                  "year": "",
+                  "idOwner": 3,
+                  "nameOwner": ""
+                }
+                 
+            </remarks>
+            <param name="property">PropertyPriceDTO with data to fill in to use as query filters</param>
+            <returns>List of property records</returns>
+            <response code="200">Return list of records consulted</response>
+            <response code="400">Notify error in business validations</response>  
+        </member>
+        <member name="T:API.PropertiesUS.Controllers.PropertyImageController">
+            <summary>
+            Controller actions for Property Images data management
+            </summary>
+        </member>
+        <member name="F:API.PropertiesUS.Controllers.PropertyImageController._propertyImageBL">
+            <summary>
+            Object of type IPropertyImagesBL
+            </summary>
+        </member>
+        <member name="F:API.PropertiesUS.Controllers.PropertyImageController._logger">
+            <summary>
+            Object of type ILogger(PropertyImageController)
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.Controllers.PropertyImageController.#ctor(Microsoft.Extensions.Logging.ILogger{API.PropertiesUS.Controllers.PropertyImageController})">
+            <summary>
+            Class constructor of controller
+            </summary>
+            <param name="logger">Object to record the log</param>
+        </member>
+        <member name="M:API.PropertiesUS.Controllers.PropertyImageController.Add(API.PropertiesUS.DTO.PropertyImageDTO)">
+            <summary>
+            Create a new Property Image record
+            </summary>
+            <remarks>
+            Sample request:
+            
+                POST /Add
+                {
+                  "fileImage": null,
+                  "imageBase64": "/9j/4AAQSkZJRgABAQEAZABkAAD/7QNqUGhvdG9zaG9wIDMuMAA4QklNBAQAAA...",
+                  "codeInternalProperty": "",
+                  "nameProperty": "",
+                  "idProperty": 1
+                }
+                 
+            </remarks>
+            <param name="propertyImage">PropertyImageDTO with data to identify the property and the image to add</param>
+            <returns>Record Identifier</returns>
+            <response code="200">Returns the ID of the new record</response>
+            <response code="400">Notify error in business validations</response>  
+        </member>
+        <member name="M:API.PropertiesUS.Controllers.PropertyImageController.Update(API.PropertiesUS.DTO.PropertyImageSimpleDTO)">
+            <summary>
+            Update a Property Image record
+            </summary>
+            <remarks>
+            Sample request:
+            
+                POST /Update
+                {
+                  "fileImage": null,
+                  "imageBase64": "sdfghj0000g4j/7255555h3g45/jh3fg...",
+                  "idPropertyImage": 1
+                }
+                 
+            </remarks>
+            <param name="propertyImage">PropertyImageSimpleDTO with data to identify the Property Image record and the image to change</param>
+            <returns>Successful update indicator</returns>
+            <response code="200">Returns successful update indicator</response>
+            <response code="400">Notify error in business validations</response>  
+        </member>
+        <member name="T:API.PropertiesUS.Controllers.PropertyTraceController">
+            <summary>
+            Controller actions for Sales data management or property traces
+            </summary>
+        </member>
+        <member name="F:API.PropertiesUS.Controllers.PropertyTraceController._propertyTracesBL">
+            <summary>
+            Object of type IPropertyTraceBL
+            </summary>
+        </member>
+        <member name="F:API.PropertiesUS.Controllers.PropertyTraceController._logger">
+            <summary>
+            Object of type ILogger(PropertyTraceController)
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.Controllers.PropertyTraceController.#ctor(Microsoft.Extensions.Logging.ILogger{API.PropertiesUS.Controllers.PropertyTraceController})">
+            <summary>
+            Class constructor of controller
+            </summary>
+            <param name="logger">Object to record the log</param>
+        </member>
+        <member name="M:API.PropertiesUS.Controllers.PropertyTraceController.Create(API.PropertiesUS.DTO.PropertyTraceDTO)">
+            <summary>
+            Create a new Sale record or property trace
+            </summary>
+            <remarks>
+            Sample request:
+            
+                POST /Create
+                {
+                  "idProperty": 1,
+                  "nameProperty": "",
+                  "codeInternalProperty": "",
+                  "nameTrace": "Venta de prueba",
+                  "valueTrace": "15000500",
+                  "taxTrace": "520"
+                }
+                 
+            </remarks>
+            <param name="propertyTrace">PropertyTraceDTO with data to identify the property and record the sale or property trace</param>
+            <returns>Record Identifier</returns>
+            <response code="200">Returns the ID of the new record</response>
+            <response code="400">Notify error in business validations</response>  
+        </member>
+        <member name="M:API.PropertiesUS.Controllers.PropertyTraceController.Update(API.PropertiesUS.DTO.PropertyTraceSimpleDTO)">
+            <summary>
+            Update a Sale or property trace
+            </summary>
+            <remarks>
+            Sample request:
+            
+                POST /Update
+                {
+                  "idPropertyTrace": 1,
+                  "name": "Prueba de venta",
+                  "dateSale": "2021-07-05",
+                  "value": "12540000",
+                  "tax": "400"
+                }
+                 
+            </remarks>
+            <param name="propertyTraceSimple">PropertyTraceSimpleDTO with data to identify the property</param>
+            <returns>Successful update indicator</returns>
+            <response code="200">Returns successful record update indicator</response>
+            <response code="400">Notify error in business validations</response>  
+        </member>
+        <member name="T:API.PropertiesUS.DAL.DbContextPropertiesUS">
+            <summary>
+            Class to manage the database context
+            </summary>
+        </member>
+        <member name="F:API.PropertiesUS.DAL.DbContextPropertiesUS.dbParameter">
+            <summary>
+            Private variable that gets the parameter for the connection string to the database
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.DAL.DbContextPropertiesUS.#ctor(System.String)">
+            <summary>
+            Class constructor method for DBContext
+            </summary>
+            <param name="parameter">String with database connection string</param>
+        </member>
+        <member name="M:API.PropertiesUS.DAL.DbContextPropertiesUS.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            Setting method of the context towards the database
+            </summary>
+            <param name="optionsBuilder">EntityFramework object to configure the Database Context</param>
+        </member>
+        <member name="M:API.PropertiesUS.DAL.DbContextPropertiesUS.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Method to model the database context with each entity
+            </summary>
+            <param name="modelBuilder">EntityFramework object to create the entity model in the database</param>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.DbContextPropertiesUS.Owner">
+            <summary>
+            Instance of the entity in the database: Owner
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.DbContextPropertiesUS.Property">
+            <summary>
+            Instance of the entity in the database: Property
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.DbContextPropertiesUS.PropertyImage">
+            <summary>
+            Instance of the entity in the database: PropertyImage
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.DbContextPropertiesUS.PropertyTrace">
+            <summary>
+            Instance of the entity in the database: PropertyTrace
+            </summary>
+        </member>
+        <member name="T:API.PropertiesUS.DAL.Dominio.Owners">
+            <summary>
+            Entity with Owners data
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.Owners.IdOwner">
+            <summary>
+            Owners record identifier
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.Owners.Name">
+            <summary>
+            Owners full name
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.Owners.Address">
+            <summary>
+            Owners residence address
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.Owners.Phone">
+            <summary>
+            Owners phone number
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.Owners.Photo">
+            <summary>
+            Base64 value of owners photo
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.Owners.Birthday">
+            <summary>
+            Owners date of birth
+            </summary>
+        </member>
+        <member name="T:API.PropertiesUS.DAL.Dominio.Properties">
+            <summary>
+            Entity with Properties data
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.Properties.IdProperty">
+            <summary>
+            Properties record identifier
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.Properties.Name">
+            <summary>
+            Properties name
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.Properties.Address">
+            <summary>
+            Properties address
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.Properties.Price">
+            <summary>
+            Properties sale price
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.Properties.CodeInternal">
+            <summary>
+            Internal code for properties identification
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.Properties.Year">
+            <summary>
+            Year of construction of the property
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.Properties.IdOwner">
+            <summary>
+            Owners record identifier FK
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.Properties.Owner">
+            <summary>
+            Owner data domain
+            </summary>
+        </member>
+        <member name="T:API.PropertiesUS.DAL.Dominio.PropertyImages">
+            <summary>
+            Entity with Properties image data
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.PropertyImages.IdPropertyImage">
+            <summary>
+            Properties image record identifier
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.PropertyImages.IdProperty">
+            <summary>
+            Properties record identifier FK
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.PropertyImages.File">
+            <summary>
+            Base64 value of properties image file
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.PropertyImages.Enabled">
+            <summary>
+            Properties image record enabled indicator
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.PropertyImages.Property">
+            <summary>
+            Property data domain
+            </summary>
+        </member>
+        <member name="T:API.PropertiesUS.DAL.Dominio.PropertyTraces">
+            <summary>
+            Entity with Properties trace data
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.PropertyTraces.IdPropertyTrace">
+            <summary>
+            Properties trace record identifier
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.PropertyTraces.IdProperty">
+            <summary>
+            Properties record identifier FK
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.PropertyTraces.DateSale">
+            <summary>
+            Properties sale date
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.PropertyTraces.Name">
+            <summary>
+            Properties buyer name
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.PropertyTraces.Value">
+            <summary>
+            Sale value of the property
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.PropertyTraces.Tax">
+            <summary>
+            Tax value for the sale of the property
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DAL.Dominio.PropertyTraces.Property">
+            <summary>
+            Property data domain
+            </summary>
+        </member>
+        <member name="T:API.PropertiesUS.DAL.Repo.BaseRepo`1">
+            <summary>
+            Base class to use repositories of each entity in database
+            </summary>
+            <typeparam name="T">Object type reference to be inherited by the class</typeparam>
+        </member>
+        <member name="F:API.PropertiesUS.DAL.Repo.BaseRepo`1._context">
+            <summary>
+            Object for database use as DBContext
+            </summary>
+        </member>
+        <member name="F:API.PropertiesUS.DAL.Repo.BaseRepo`1._dbEntity">
+            <summary>
+            Object representing an inherited entity
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.DAL.Repo.BaseRepo`1.#ctor(System.String)">
+            <summary>
+            Constructor method of the class
+            </summary>
+            <param name="connectionString">String with database connection string (nullable)</param>
+        </member>
+        <member name="M:API.PropertiesUS.DAL.Repo.BaseRepo`1.GetAll">
+            <summary>
+            Method to get all the records of an entity
+            </summary>
+            <returns>List of records obtained from the inherited data type</returns>
+        </member>
+        <member name="M:API.PropertiesUS.DAL.Repo.BaseRepo`1.GetListByFilter(System.Func{`0,System.Boolean})">
+            <summary>
+            Method to get records of an entity depending on search filters
+            </summary>
+            <param name="where">Query with filters for the entity, with Linq library</param>
+            <returns>List of records obtained from the inherited data type</returns>
+        </member>
+        <member name="M:API.PropertiesUS.DAL.Repo.BaseRepo`1.GetByFilter(System.Func{`0,System.Boolean})">
+            <summary>
+            Method to get a record of an entity depending on search filters
+            </summary>
+            <param name="where">Query with filters for the entity, with Linq library</param>
+            <returns>Object/registry obtained from the inherited data type</returns>
+        </member>
+        <member name="M:API.PropertiesUS.DAL.Repo.BaseRepo`1.Add(`0)">
+            <summary>
+            Method to add or create a record to the entity
+            </summary>
+            <param name="data">New record data</param>
+            <returns>Object of the inherited data type, with inserted data</returns>
+        </member>
+        <member name="M:API.PropertiesUS.DAL.Repo.BaseRepo`1.Update(`0)">
+            <summary>
+            Method to update an entity record
+            </summary>
+            <param name="data">Row data to update</param>
+            <returns>Object of inherited data type, with updated data</returns>
+        </member>
+        <member name="M:API.PropertiesUS.DAL.Repo.BaseRepo`1.Count(System.Func{`0,System.Boolean})">
+            <summary>
+            Method to get the number of records in the entity
+            </summary>
+            <param name="where">Query with filters for the entity, with Linq library</param>
+            <returns>Number of records obtained from the entity</returns>
+        </member>
+        <member name="T:API.PropertiesUS.DAL.Repo.IBaseRepo`1">
+            <summary>
+            Interface class for base class of repositories for each entity in database
+            </summary>
+            <typeparam name="T">Object type reference to be inherited by the class</typeparam>
+        </member>
+        <member name="M:API.PropertiesUS.DAL.Repo.IBaseRepo`1.GetAll">
+            <summary>
+            Method to get all the records of an entity
+            </summary>
+            <returns>List of records obtained from the inherited data type</returns>
+        </member>
+        <member name="M:API.PropertiesUS.DAL.Repo.IBaseRepo`1.GetListByFilter(System.Func{`0,System.Boolean})">
+            <summary>
+            Method to get records of an entity depending on search filters
+            </summary>
+            <param name="where">Query with filters for the entity, with Linq library</param>
+            <returns>List of records obtained from the inherited data type</returns>
+        </member>
+        <member name="M:API.PropertiesUS.DAL.Repo.IBaseRepo`1.GetByFilter(System.Func{`0,System.Boolean})">
+            <summary>
+            Method to get a record of an entity depending on search filters
+            </summary>
+            <param name="where">Query with filters for the entity, with Linq library</param>
+            <returns>Object/registry obtained from the inherited data type</returns>
+        </member>
+        <member name="M:API.PropertiesUS.DAL.Repo.IBaseRepo`1.Add(`0)">
+            <summary>
+            Method to add or create a record to the entity
+            </summary>
+            <param name="data">New record data</param>
+            <returns>Object of the inherited data type, with inserted data</returns>
+        </member>
+        <member name="M:API.PropertiesUS.DAL.Repo.IBaseRepo`1.Update(`0)">
+            <summary>
+            Method to update an entity record
+            </summary>
+            <param name="data">Row data to update</param>
+            <returns>Object of inherited data type, with updated data</returns>
+        </member>
+        <member name="M:API.PropertiesUS.DAL.Repo.IBaseRepo`1.Count(System.Func{`0,System.Boolean})">
+            <summary>
+            Method to get the number of records in the entity
+            </summary>
+            <param name="where">Query with filters for the entity, with Linq library</param>
+            <returns>Number of records obtained from the entity</returns>
+        </member>
+        <member name="T:API.PropertiesUS.DTO.OwnerDTO">
+            <summary>
+            Owner data DTO
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.OwnerDTO.Name">
+            <summary>
+            Owner's name
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.OwnerDTO.Address">
+            <summary>
+            Owner's Address
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.OwnerDTO.Phone">
+            <summary>
+            (Optional) Owner's phone number
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.OwnerDTO.Photo">
+            <summary>
+            (Optional) Photo for identification of the owner. Image can be sent in Base64 or Image type
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.OwnerDTO.PhotoBase64">
+            <summary>
+            (Optional) Base64 of the photo to identify the owner. Image can be sent in Base64 or Image type
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.OwnerDTO.Birthday">
+            <summary>
+            (Optional) Owner's day of birth
+            </summary>
+        </member>
+        <member name="T:API.PropertiesUS.DTO.PropertyDTO">
+            <summary>
+            Owner data DTO
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyDTO.NameProperty">
+            <summary>
+            Property name
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyDTO.AddressProperty">
+            <summary>
+            Property Address
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyDTO.PriceProperty">
+            <summary>
+            Property price
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyDTO.CodeInternalProperty">
+            <summary>
+            Internal code of the property. If not sent, it will be auto-generated
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyDTO.Year">
+            <summary>
+            Year of construction of the property
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyDTO.IdOwner">
+            <summary>
+            Identifier of the owner of the property. Optional field for property owner query, the owner's ID or Name must be sent
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyDTO.NameOwner">
+            <summary>
+            Name of the owner of the property. Optional field for property owner query, the owner's ID or Name must be sent
+            </summary>
+        </member>
+        <member name="T:API.PropertiesUS.DTO.PropertyImageDTO">
+            <summary>
+            Property image data DTO
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyImageDTO.FileImage">
+            <summary>
+            Image file of the property. The image can be uploaded in Image or Base64 type
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyImageDTO.ImageBase64">
+            <summary>
+            Image file of the property. The image can be uploaded in Image or Base64 type
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyImageDTO.CodeInternalProperty">
+            <summary>
+            Internal code of the property. Optional for Property query
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyImageDTO.NameProperty">
+            <summary>
+            Property name. Optional for Property query
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyImageDTO.IdProperty">
+            <summary>
+            Property identifier. Optional for Property query
+            </summary>
+        </member>
+        <member name="T:API.PropertiesUS.DTO.PropertyImageSimpleDTO">
+            <summary>
+            DTO to Update Property Image record 
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyImageSimpleDTO.FileImage">
+            <summary>
+            Image type value for property image
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyImageSimpleDTO.ImageBase64">
+            <summary>
+            Base64 value of property image
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyImageSimpleDTO.IdPropertyImage">
+            <summary>
+            Property image record identifier
+            </summary>
+        </member>
+        <member name="T:API.PropertiesUS.DTO.PropertyPriceDTO">
+            <summary>
+            DTO for Property Price field update
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyPriceDTO.Price">
+            <summary>
+            Price to update
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyPriceDTO.Name">
+            <summary>
+            Property name. Optional field for identification of this one
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyPriceDTO.CodeInternal">
+            <summary>
+            Internal code of the property. Optional field for identification of this one
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyPriceDTO.IdProperty">
+            <summary>
+            Property identifier. Optional field for identification of this one
+            </summary>
+        </member>
+        <member name="T:API.PropertiesUS.DTO.PropertySimpleDTO">
+            <summary>
+            DTO para consultar la cantidad de registros de visitas a una propiedad
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertySimpleDTO.Name">
+            <summary>
+            Nombre de la propiedad
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertySimpleDTO.CodeInternal">
+            <summary>
+            Codigo interno de la propiedad
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertySimpleDTO.IdProperty">
+            <summary>
+            Identificador del registro de la propiedad
+            </summary>
+        </member>
+        <member name="T:API.PropertiesUS.DTO.PropertyTraceDTO">
+            <summary>
+            DTO to add property trace record
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyTraceDTO.IdProperty">
+            <summary>
+            Related property record identifier
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyTraceDTO.NameProperty">
+            <summary>
+            Property name
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyTraceDTO.CodeInternalProperty">
+            <summary>
+            Internal code of the property
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyTraceDTO.DateSale">
+            <summary>
+            Property sale date
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyTraceDTO.NameTrace">
+            <summary>
+            Name of the buyer or trace of the property
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyTraceDTO.ValueTrace">
+            <summary>
+            Sale value of the property
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyTraceDTO.TaxTrace">
+            <summary>
+            Tax applied to the sale of the property
+            </summary>
+        </member>
+        <member name="T:API.PropertiesUS.DTO.PropertyTraceSimpleDTO">
+            <summary>
+            DTO to Update property trace record
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyTraceSimpleDTO.IdPropertyTrace">
+            <summary>
+            Related property trace record identifier
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyTraceSimpleDTO.Name">
+            <summary>
+            Name of the buyer or trace of the property
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyTraceSimpleDTO.DateSale">
+            <summary>
+            Property sale date
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyTraceSimpleDTO.Value">
+            <summary>
+            Sale value of the property
+            </summary>
+        </member>
+        <member name="P:API.PropertiesUS.DTO.PropertyTraceSimpleDTO.Tax">
+            <summary>
+            Tax applied to the sale of the property
+            </summary>
+        </member>
+        <member name="T:API.PropertiesUS.Program">
+            <summary>
+            Main base class
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.Program.Main(System.String[])">
+            <summary>
+            Method for the initial construction of the project
+            </summary>
+            <param name="args">framework arguments</param>
+        </member>
+        <member name="M:API.PropertiesUS.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Method to invoke the startup class
+            </summary>
+            <param name="args">framework arguments</param>
+            <returns>Object of type IHostBuilder</returns>
+        </member>
+        <member name="T:API.PropertiesUS.Startup">
+            <summary>
+            Base class for Startup
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Constructor method of the class
+            </summary>
+            <param name="configuration">Object of type IConfiguration</param>
+        </member>
+        <member name="P:API.PropertiesUS.Startup.Configuration">
+            <summary>
+            Object of type IConfiguration
+            </summary>
+        </member>
+        <member name="M:API.PropertiesUS.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">Object of type IServiceCollection</param>
+        </member>
+        <member name="M:API.PropertiesUS.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Method to configure the HTTP request pipeline
+            </summary>
+            <param name="app">Object of type IApplicationBuilder</param>
+            <param name="env">Object of type IWebHostEnvironment</param>
+        </member>
+        <member name="T:API.PropertiesUS.GlobalStaticResources">
+            <summary>
+            Contains all the static resources defined for the application
+            </summary>
+        </member>
+    </members>
+</doc>
