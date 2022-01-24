@@ -4,6 +4,7 @@ using API.PropertiesUS.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -19,6 +20,10 @@ namespace API.PropertiesUS.Controllers
     public class PropertyTraceController : ControllerBase
     {
         /// <summary>
+        /// Object of type IConfiguration
+        /// </summary>
+        public IConfiguration _configuration { get; }
+        /// <summary>
         /// Object of type IPropertyTraceBL
         /// </summary>
         private readonly IPropertyTraceBL _propertyTracesBL;
@@ -30,11 +35,14 @@ namespace API.PropertiesUS.Controllers
         /// <summary>
         /// Class constructor of controller
         /// </summary>
+        /// <param name="configuration">Object of type IConfiguration</param>
         /// <param name="logger">Object to record the log</param>
-        public PropertyTraceController(ILogger<PropertyTraceController> logger)
+        public PropertyTraceController(IConfiguration configuration, ILogger<PropertyTraceController> logger)
         {
             _logger = logger;
-            _propertyTracesBL = new PropertyTraceBL();
+            _configuration = configuration;
+            string connection = configuration.GetSection("ConnectionStrings")["APIConnection"];
+            _propertyTracesBL = new PropertyTraceBL(connection);
         }
 
         /// <summary>
