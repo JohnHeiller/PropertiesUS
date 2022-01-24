@@ -32,3 +32,12 @@ GO
 
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Owners date of birth' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Owner', @level2type=N'COLUMN',@level2name=N'Birthday'
 GO
+
+USE [PropertiesUS]
+GO
+
+INSERT INTO [dbo].[Owner]
+           ([Name],[Address],[Phone],[Photo],[Birthday])
+     VALUES
+           ('Default User','Street 1 # 10-10','3501590000',NULL,'1900-01-01')
+GO

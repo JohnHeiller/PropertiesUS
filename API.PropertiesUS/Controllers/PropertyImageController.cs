@@ -4,6 +4,7 @@ using API.PropertiesUS.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -19,6 +20,10 @@ namespace API.PropertiesUS.Controllers
     public class PropertyImageController : ControllerBase
     {
         /// <summary>
+        /// Object of type IConfiguration
+        /// </summary>
+        public IConfiguration _configuration { get; }
+        /// <summary>
         /// Object of type IPropertyImagesBL
         /// </summary>
         private readonly IPropertyImagesBL _propertyImageBL;
@@ -30,11 +35,14 @@ namespace API.PropertiesUS.Controllers
         /// <summary>
         /// Class constructor of controller
         /// </summary>
+        /// <param name="configuration">Object of type IConfiguration</param>
         /// <param name="logger">Object to record the log</param>
-        public PropertyImageController(ILogger<PropertyImageController> logger)
+        public PropertyImageController(IConfiguration configuration, ILogger<PropertyImageController> logger)
         {
             _logger = logger;
-            _propertyImageBL = new PropertyImagesBL();
+            _configuration = configuration;
+            string connection = configuration.GetSection("ConnectionStrings")["APIConnection"];
+            _propertyImageBL = new PropertyImagesBL(connection);
         }
 
         /// <summary>
